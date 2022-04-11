@@ -22,7 +22,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
 const Welcome = () => {
 
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
     
 
     const handleSubmit = (e) => {
@@ -79,7 +79,7 @@ const Welcome = () => {
                         <div className="flex justify-between flex-col w-full h-full">
                             <div className="flex justify-between items-start">
                                 <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
-                                    <SiEthereum fontSize={21} color="#fff" />
+                                    <SiEthereun fontSize={21} color="#fff" />
                                 </div>
                                 <BsInfoCircle fontSize={17} color="#fff" />
                             </div>
@@ -102,7 +102,7 @@ const Welcome = () => {
 
                         <div className="h-[1px] w-full bg-gray-400 my-2"></div>
 
-                        {isLoading ? (
+                        {true ? (
                             <Loader />
                         ) : (
                             <button
