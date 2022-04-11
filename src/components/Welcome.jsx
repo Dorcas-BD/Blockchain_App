@@ -22,7 +22,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
 const Welcome = () => {
 
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
     
 
     const handleSubmit = (e) => {
@@ -52,7 +52,10 @@ const Welcome = () => {
                             onClick={connectWallet}
                             className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
                         >
-                            <p className="text-white text-base font-semibold">Connect Wallet</p>
+                            <AiFillPlayCircle className="text-white mr-2" />
+                            <p className="text-white text-base font-semibold">
+                                Connect Wallet
+                            </p>
                         </button>
                     )}
 
@@ -79,7 +82,7 @@ const Welcome = () => {
                         <div className="flex justify-between flex-col w-full h-full">
                             <div className="flex justify-between items-start">
                                 <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
-                                    <SiEthereun fontSize={21} color="#fff" />
+                                    <SiEthereum fontSize={21} color="#fff" />
                                 </div>
                                 <BsInfoCircle fontSize={17} color="#fff" />
                             </div>
@@ -102,9 +105,9 @@ const Welcome = () => {
 
                         <div className="h-[1px] w-full bg-gray-400 my-2"></div>
 
-                        {true ? (
-                            <Loader />
-                        ) : (
+                        {isLoading
+                         ? <Loader />
+                         : (
                             <button
                                 type="button"
                                 onClick={handleSubmit}
